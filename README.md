@@ -65,7 +65,6 @@ patient-management-system/
 │ └── search.py # Search endpoints
 ├── patients.json # Data storage file
 ├── requirements.txt # Dependencies
-├── .gitignore # Git ignore file
 └── README.md # Documentation
 
 ```
