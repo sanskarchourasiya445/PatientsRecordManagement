@@ -13,9 +13,19 @@ app.include_router(search_router)
 @app.get("/")
 def Patients_Record():
     return {
-        "message": "Patients Record Management System API",
+        "message": "Welcome to the Patient Record Management System API",
         "version": "1.0.0",
         "docs": "/docs"
+        "framework": "FastAPI",
+        "features": [
+            "Create Patient Records",
+            "View All Patients",
+            "Search & Filter Patients",
+            "Sort Patients",
+            "Update Patient Details",
+            "Delete Patient Records",
+            "Patient Health Statistics"
+        ],
     }
 
 @app.get("/about")
