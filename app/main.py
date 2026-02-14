@@ -28,19 +28,6 @@ def Patients_Record():
         ],
     }
 
-@app.get("/about")
-def about():
-    return {
-        "project": "Patients Record Management System",
-        "features": [
-            "CRUD Operations",
-            "Search & Filter",
-            "Sorting",
-            "Statistics"
-        ]
-    }
-
-
 # Health check endpoint (optional)
 @app.get("/health")
 def health_check():
