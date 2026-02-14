@@ -5,10 +5,7 @@ from app.routes import patients_router, statistics_router, search_router
 from app.data import load_data
 app = FastAPI()
 
-# Include all routers
-app.include_router(patients_router)
-app.include_router(statistics_router)
-app.include_router(search_router)
+
 
 @app.get("/")
 def Patients_Record():
@@ -27,6 +24,11 @@ def Patients_Record():
             "Patient Health Statistics"
         ],
     }
+
+# Include all routers
+app.include_router(statistics_router)
+app.include_router(search_router)
+app.include_router(patients_router)
 
 # Health check endpoint (optional)
 @app.get("/health")
