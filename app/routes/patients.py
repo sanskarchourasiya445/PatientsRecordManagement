@@ -13,15 +13,7 @@ def view():
     data = load_data()
     return data
 
-@router.get('/patients/{patient_id}')
-def view_patient(patient_id: str = Path(..., description='ID of the patient in the DB', example='P001')):
-    data = load_data()
-
-    if patient_id in data:
-        patient_data = data[patient_id]
-        patient_data['id'] = patient_id  # ID add karo
-        return patient_data
-    raise HTTPException(status_code=404, detail='Patient not found')
+'Patient not found')
 
 @router.get('/patients/sort')
 def sort_patients(
@@ -52,6 +44,16 @@ def sort_patients(
     sorted_data = sorted(patients_list, key=lambda x: x.get(sort_by, 0), reverse=reverse)
 
     return sorted_data
+
+@router.get('/patients/{patient_id}')
+def view_patient(patient_id: str = Path(..., description='ID of the patient in the DB', example='P001')):
+    data = load_data()
+
+    if patient_id in data:
+        patient_data = data[patient_id]
+        patient_data['id'] = patient_id  # ID add karo
+        return patient_data
+    raise HTTPException(status_code=404, detail=
 
 @router.post('/patients', status_code=201)
 def create_patient(patient: Patient):
